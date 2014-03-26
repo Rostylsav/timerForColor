@@ -1,15 +1,39 @@
 (function()
 {
+
+    /**
+        * Creates a new Timer.
+        * @constructor 
+        * @param {obj} object with property and value.
+        * @property {function} action. Function for timer.
+        * @property {number} frameCount. Number of frames to be performed.
+        * @property {number} time. time for display all frames.
+        */      
     function Timer(obj)
     {
+        /**
+        * @property {function} action. Function for timer.
+        */
+        this.action = obj.action;
+        /**
+        * @property {number} frameCount. Number of frames to be performed.
+        */
         this.frameCount = obj.frameCount;
+        /**
+        * @property {number} time. time for display all frames.
+        */
         this.time = obj.time;
-        this.color = obj.color;
+        /**
+        * @property {number} interval. Interval for color change.
+        */
         this.interval = 0;
+        /**
+        * @property {nimber} intervalId. intervalId for function stop().
+        */
         this.intervalId = 0;
         
         /**
-        * Function checks whether the timer is running.
+        * Function set interval for change.
         * @returns true or false.
         */
 
@@ -18,88 +42,26 @@
             this.interval = Math.floor(this.time/this.frameCount);
         }
 
-        this.isRunning=function()
-        {
-            var isRunning;
-            if(this.intervalId != 0)
-            {
-                isRunning = true;
-            }
-            else
-            {
-                isRunning = false;
-            }
-            return isRunning;
-        }
         /**
-        * Defines a new function for timer.
-        * @param {function} new function for timer.
-        */
-        this.setAction = function(action)
-        {
-            if(this.isRunning())
-            {
-                this.stop();
-                this.action = action;
-                this.run();
-            }
-            else
-            {
-                this.action  = action;
-            }
-        }
-        /**
-        * Defines a new interval for timer.
-        * @param {number} new interval for timer.
-        */
-        this.setTime = function(time)
-        {
-            if(this.isRunning())
-            {
-                this.stop();
-                this.time = time
-                this.run();
-            }
-            else
-            {
-                this.time = time;
-            }
-        }
-        /**
-        * Defines a new interval for timer.
-        * @param {number} new interval for timer.
-        */
-        this.setFrameCount = function(frameCount)
-        {
-            if(this.isRunning())
-            {
-                this.stop();
-                this.frameCount = frameCount;
-                this.run();
-            }
-            else
-            {
-                this.frameCount = frameCount;
-            }
-        }
-
-        /**
-        * The function starts the timer.
+        * This function starts the timer.
         */
         this.run = function()
         {   
+             var currentFrame = 0;   
              this.setIntervalToChange();
-            if(this.frameCount > this.color.currentFrame)    
+            if(this.frameCount > currentFrame)    
             {    
-                this.intervalIid = setInterval ( this.color.animation, this.interval );
+                this.intervalIid = setInterval ( this.action, this.interval );
+                currentFrame++;
             }    
             else
             {
                 this.stop();
             }
         }
+
         /**
-        * The function stopChangings the timer.
+        * This function stops the timer.
         */
         this.stop = function()
         {
@@ -108,59 +70,60 @@
         }
         
     }
-    
-    function animateColor(obj)
+
+    /**
+        * Creates a new AnimateColor.
+        * @constructor 
+        * @param {obj} object with property and value.
+        * @property {html element} element. html element which will be animation color.
+        * @property {array} startColor. color with which to start the animation.
+        * @property {array} stepChengOfColor. step that will change the color
+        */   
+    function AnimateColor(obj)
     {
-
-
+        /**
+        * @property {html element} element. html element which will be animation color.
+        */  
         this.element=obj.element;
+        /**
+        * @property {array} startColor. color with which to start the animation.
+        */ 
         this.startColor = obj.startColor;
+        /**
+        * @property {array} stepChengOfColor. step that will change the color
+        */ 
         this.stepChengOfColor=obj.step.map(function(elem){return elem;});
-
-        this.arrayColorToChanje = [];       
+        /**
+        * @property {array} arrayColorToChanje. color for display.
+        */ 
+        this.arrayColorToChanje = []; 
+        /**
+        * @property {number} currentFrame. Current frame.
+        */       
         this.currentFrame=0;
         
         /**
-        * Color for animation.
+        * Set color  and display him.
         */
-        this.setNewColorToShow = function()
+        this.animation = function()
         {
             this.arrayColorToChanje[0] = (this.startColor[0] + Math.floor(this.stepChengOfColor[0]*this.currentFrame));
             this.arrayColorToChanje[1] = (this.startColor[1] + Math.floor(this.stepChengOfColor[1]*this.currentFrame));
             this.arrayColorToChanje[2] = (this.startColor[2] + Math.floor(this.stepChengOfColor[2]*this.currentFrame));
+
             this.frameCount++;
+
+            this.element.style.backgroundColor = 'rgb(' + this.arrayColorToChanje[0] + ',' + this.arrayColorToChanje[1] + ','+ this.arrayColorToChanje[2] + ')';
         }
 
-        /**
-        * Animation.
-        */
-        this.animation = function()
-        {
-                //this.setNewColorToShow();
-                this.setNewColorToShow.myBind(this);
-                this.element.style.backgroundColor = 'rgb(' + this.arrayColorToChanje[0] + ',' + this.arrayColorToChanje[1] + ','+ this.arrayColorToChanje[2] + ')';
-        }
     }
 
-    Function.prototype.myBind =  function ( context, obj )
-    {
-        var data = {
-                   payload:obj
-                };
-        var that = this;
-
-        return  function() {
-                data.args = [].slice.call(arguments);
-                that.call(context, data);
-            };
-    }
-    
+   
     function init()
     {
-        var color = new animateColor({element:document.getElementById('container1'), startColor:[113, 123, 90], frameCount:50, step:[2,1,0]});
-        var timer = new Timer({frameCount:50, time:1500, color: color});
-        
-       timer.run(color.currentFrame);
+        var color = new AnimateColor({element:document.getElementById('container'), startColor:[113, 123, 90], frameCount:50, step:[2,1,0]});
+        var timer = new Timer({action:color.animation, frameCount:50, time:1500}); 
+        timer.run(color.currentFrame);
     }
     window.init = init;
 }())    
