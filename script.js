@@ -20,40 +20,35 @@
         /**
         * @property {number} frameCount. Number of frames to be performed.
         */
-        this.frameCount = obj.frameCount;
-
-        /**
-        * @property {number} time. time for display all frames.
-        */
-        this.time = obj.time;
+        this.iteration = obj.iteration;
 
         /**
         * @property {number} interval. Interval for color change.
         */
-        this.interval = 0;
+        this.interval = obj.interval;        
 
+        this.currentIteration = 0;
         /**
         * @property {nimber} intervalId. intervalId for function stop().
         */
         this.intervalId = 0;
 
         /**
-        * Function set interval for change.
-        * @returns true or false.
-        */
-
-        this.setIntervalToChange = function()
-        {
-            this.interval = Math.floor(this.time/this.frameCount);
-        }
-
-        /**
         * This function starts the timer.
         */
         this.run = function()
         {     
-            this.setIntervalToChange(); 
-            this.intervalIid = setInterval( this.action, this.interval);
+            this.intervalIid = setInterval( function(){
+                            if(this.iteration>this.currentIteration)
+                                {
+                                    this.action; 
+                                    this.currentIteration++;
+                                }
+                            else
+                                {
+                                    this.stop();
+                                }
+                        }, this.interval);
         }
 
         /**
@@ -89,9 +84,16 @@
         this.startColor = obj.startColor;
 
         /**
+        * @property {array} endColor. finish color.
+        */ 
+        this.endColor = obj.endColor;
+
+       
+
+        /**
         * @property {array} stepChengOfColor. step that will change the color
         */ 
-        this.stepChengOfColor=obj.step.map(function(elem){return elem;});
+        this.stepChengOfColor=[];
 
         /**
         * @property {array} arrayColorToChanje. color for display.
@@ -103,31 +105,43 @@
         */       
         this.currentFrame=0;
 
-        /**
-        * Set color  and display him.
-        */
+        
+         var timer = new Timer({action:this.changeColor, iteration:50, interval:30}); 
+       
+       this.setChanjeStepOfColor = function()
+        {
+            this.stepChengOfColor[0] = ((this.startColor[0] - this.endColor[0]) / timer.iteration);
+            this.stepChengOfColor[1] = ((this.startColor[1] - this.endColor[1]) / timer.iteration);
+            this.stepChengOfColor[2] = ((this.startColor[2] - this.endColor[2]) / timer.iteration);
+        }
+
         this.animation = function()
         {
-            this.arrayColorToChanje[0] = (this.startColor[0] + Math.floor(this.stepChengOfColor[0]*this.currentFrame));
-            this.arrayColorToChanje[1] = (this.startColor[1] + Math.floor(this.stepChengOfColor[1]*this.currentFrame));
-            this.arrayColorToChanje[2] = (this.startColor[2] + Math.floor(this.stepChengOfColor[2]*this.currentFrame));
+            this.setChanjeStepOfColor();
+            timer.run();
+        }
 
-            this.currentFrame++;
-
-            this.element.style.backgroundColor = 'rgb(' + this.arrayColorToChanje[0] + ',' + this.arrayColorToChanje[1] + ','+ this.arrayColorToChanje[2] + ')';
-            console.log(this.currentFrame);
-
+         /**
+        * Set color  and display him.
+        */
+        this.changeColor = function()
+        {
+           
+                this.arrayColorToChanje[0] = (this.startColor[0] - Math.floor(this.stepChengOfColor[0]*this.currentFrame));
+                this.arrayColorToChanje[1] = (this.startColor[1] - Math.floor(this.stepChengOfColor[1]*this.currentFrame));
+                this.arrayColorToChanje[2] = (this.startColor[2] - Math.floor(this.stepChengOfColor[2]*this.currentFrame));
+                this.element.style.backgroundColor = 'rgb(' + this.arrayColorToChanje[0] + ',' + this.arrayColorToChanje[1] + ','+ this.arrayColorToChanje[2] + ')';
+                console.log(this.currentFrame);
+                this.currentFrame++;
         }
 
     }
 
-   
+   window.Timer = Timer; 
     function init()
     {
-        var color = new AnimateColor({element:document.getElementById('container'), startColor:[113, 123, 90], frameCount:50, step:[2,1,0]});
-        var timer = new Timer({action:function(){return color.animation();}, frameCount:50, time:1500}); 
-        timer.run();
-      // color.animation();
+        var color = new AnimateColor({element:document.getElementById('container'), startColor:[12, 123, 90], endColor:[190, 255, 10]});
+        color.animation();
     }
     window.init = init;
 }())    
