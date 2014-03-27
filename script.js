@@ -57,7 +57,10 @@
                                     else
                                     {
                                         this.stop();
-                                        this.callback();
+                                        if(typeof this.callback =='function')
+                                        {
+                                            this.callback();   
+                                        }
                                     } 
                                 }.myBind(this), this.interval);
         }
