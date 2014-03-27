@@ -203,7 +203,7 @@
     {
         function callback()
         {
-            var newColor = new AnimateColor({element:document.getElementById('container2'), startColor:[0, 0, 0], endColor:[255, 255, 255], time:3000, interval:100,})
+            var newColor = new AnimateColor({element:document.getElementById('container2'), startColor:[0, 0, 0], endColor:[225, 215, 235], time:3000, interval:100,})
             newColor.animate();
         }
         var color = new AnimateColor({element:document.getElementById('container1'), startColor:[102, 255, 90], endColor:[210, 0, 110], time:2500, interval:100, callback : callback});
