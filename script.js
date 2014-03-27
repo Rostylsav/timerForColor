@@ -88,6 +88,8 @@
         */ 
         this.endColor = obj.endColor;
 
+
+        this.time = obj.time;
        
 
         /**
@@ -105,15 +107,39 @@
         */       
         this.currentFrame=0;
 
-        
-         var timer = new Timer({action:this.changeColor, iteration:50, interval:30}); 
+        this.iteration = 0;
+         /**
+        * Counts the number of frames.
+        * @returns {number} count of animation.
+        */
+        this.getIteration = function()
+        {
+            this.iteration = Math.floor(this.time / 30);
+            return this.iteration;
+        }
        
+
        this.setChanjeStepOfColor = function()
         {
-            this.stepChengOfColor[0] = ((this.startColor[0] - this.endColor[0]) / timer.iteration);
-            this.stepChengOfColor[1] = ((this.startColor[1] - this.endColor[1]) / timer.iteration);
-            this.stepChengOfColor[2] = ((this.startColor[2] - this.endColor[2]) / timer.iteration);
+            var inter = this.getIteration();
+            this.stepChengOfColor[0] = ((this.startColor[0] - this.endColor[0]) / inter);
+            this.stepChengOfColor[1] = ((this.startColor[1] - this.endColor[1]) / inter);
+            this.stepChengOfColor[2] = ((this.startColor[2] - this.endColor[2]) / inter);
         }
+         /**
+        * Set color  and display him.
+        */
+        this.changeColor = function()
+        {
+            this.arrayColorToChanje[0] = (this.startColor[0] - Math.floor(this.stepChengOfColor[0]*this.currentFrame));
+            this.arrayColorToChanje[1] = (this.startColor[1] - Math.floor(this.stepChengOfColor[1]*this.currentFrame));
+            this.arrayColorToChanje[2] = (this.startColor[2] - Math.floor(this.stepChengOfColor[2]*this.currentFrame));
+            this.currentFrame++;
+            this.element.style.backgroundColor = 'rgb(' + this.arrayColorToChanje[0] + ',' + this.arrayColorToChanje[1] + ','+ this.arrayColorToChanje[2] + ')';
+            console.log(this.currentFrame);
+        }
+
+        var timer = new Timer({action:this.changeColor, iteration:this.getIteration(), interval:30}); 
 
         this.animation = function()
         {
@@ -121,26 +147,12 @@
             timer.run();
         }
 
-         /**
-        * Set color  and display him.
-        */
-        this.changeColor = function()
-        {
-           
-                this.arrayColorToChanje[0] = (this.startColor[0] - Math.floor(this.stepChengOfColor[0]*this.currentFrame));
-                this.arrayColorToChanje[1] = (this.startColor[1] - Math.floor(this.stepChengOfColor[1]*this.currentFrame));
-                this.arrayColorToChanje[2] = (this.startColor[2] - Math.floor(this.stepChengOfColor[2]*this.currentFrame));
-                this.element.style.backgroundColor = 'rgb(' + this.arrayColorToChanje[0] + ',' + this.arrayColorToChanje[1] + ','+ this.arrayColorToChanje[2] + ')';
-                console.log(this.currentFrame);
-                this.currentFrame++;
-        }
-
     }
 
    window.Timer = Timer; 
     function init()
     {
-        var color = new AnimateColor({element:document.getElementById('container'), startColor:[12, 123, 90], endColor:[190, 255, 10]});
+        var color = new AnimateColor({element:document.getElementById('container'), startColor:[12, 123, 90], endColor:[190, 255, 10], time:1500});
         color.animation();
     }
     window.init = init;
