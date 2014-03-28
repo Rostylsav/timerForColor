@@ -54,9 +54,9 @@
     /**
     *Function of initialization.
     */
-    function init()
+    function init2()
     {
         addEvent();        
     }
-    window.init = init;
+    window.init2 = init2;
 }())    

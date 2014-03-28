@@ -202,16 +202,17 @@
 
     /**
     *Function of initialization.
+    */
     
-    function init()
+    function init1()
     {
         function callback()
         {
             var newColor = new AnimateColor({element:document.getElementById('container2'), startColor:[0, 0, 0], endColor:[225, 215, 235], time:3000, interval:100,})
             newColor.animate();
         }
-        var color = new AnimateColor({element:document.getElementById('container1'), startColor:[102, 255, 90], endColor:[210, 0, 110], time:1500, interval:100, callback : 'callback'});
+        var color = new AnimateColor({element:document.getElementById('container1'), startColor:[102, 255, 90], endColor:[210, 0, 110], time:1500, interval:100, callback : callback});
         color.animate();
     }
-    window.init = init;*/
+    window.init1 = init1;
 }())    

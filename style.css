@@ -16,14 +16,14 @@ body{
 }
 
 @-webkit-keyframes animation2 {
-0% {top: 0; left: 0;}
-15% {top: 90%; left: 15%;}
-30% {top: 25%; left: 30%;}
-45% {top: 90%; left: 45%;}
-60% {top:50%; left: 60%;}
-75% {top: 90%; left: 75%;}
-90% {top: 75%; left: 90%;}
-100% {top: 90%; left: 100%;}
+0% {top: 0; left: 0; -webkit-animation-timing-function: ease-in;	}
+15% {top: 90%; left: 15%; -webkit-animation-timing-function: ease-out;	}
+30% {top: 25%; left: 30%; -webkit-animation-timing-function: ease-in;	}
+45% {top: 90%; left: 45%; -webkit-animation-timing-function: ease-out;	}
+60% {top:50%; left: 60%; -webkit-animation-timing-function: ease-in;	    }
+75% {top: 90%; left: 75%; -webkit-animation-timing-function: ease-out;	}
+90% {top: 75%; left: 90%; -webkit-animation-timing-function: ease-in;	}
+100% {top: 90%; left: 100%; -webkit-animation-timing-function: ease-out;	}
 }
 
 @-webkit-keyframes animation3 {
@@ -152,8 +152,7 @@ body{
 	-webkit-border-radius:25px; 
 	position: relative;
 	-webkit-animation-name: 'animation2';
-    -webkit-animation-duration: 20s;
-    -webkit-animation-timing-function: ease-in;	
+    -webkit-animation-duration: 4s;
 }
 
 .animation3{
