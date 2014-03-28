@@ -1,14 +1,23 @@
 <html>
 	<head>
 		<title>animate color</title>
-		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="colorAnimate.js"></script>
+		<script type="text/javascript" src="animateByCss3.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 		
 	<body onload='init();'>
-		<div id="container1"></div><br>
+		<div id="container1" style="width: 200px;height: 100px;"></div><br>
 		<div id="container2" style="width:300px;height:150px;"></div><br>
-		<div id="container3"></div>
+
+		<div id="animate">
+			<input type = "radio" name = "group1" id = "1"> Animate 1 </input><br>
+			<input type = "radio" name = "group1" id = "2"> Animate 2 </input><br>
+			<input type = "radio" name = "group1" id = "3"> Animate 3 </input><br>
+			<input type = "radio" name = "group1" id = "4"> Animate 4 </input>
+		</div>
+
+		<div id = 'display'></div>
 	</body>
 </html>

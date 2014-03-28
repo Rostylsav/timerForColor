@@ -3,28 +3,216 @@ body{
 	padding: 0;
 }
 
-@-webkit-keyframes anim_left_top {
+@-webkit-keyframes animation1 {
 0% {top: 0; left: 0; -webkit-transform: rotate(0deg);}
-8% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
-16% {top: 0%; left: 90%; -webkit-transform: rotate(360deg);}
-
-24% {top: 0; left: 90%; -webkit-transform: rotate(360deg);}
-33% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
-40% {top: 90%; left: 90%; -webkit-transform: rotate(0deg);}
-
-48% {top: 90%; left: 90%; -webkit-transform: rotate(0deg);}
-56% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
-64% {top: 90%; left: 0%; -webkit-transform: rotate(360deg);}
-
-72% {top: 90%; left: 0; -webkit-transform: rotate(360deg);}
-80% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+13% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+26% {top: 0%; left: 90%; -webkit-transform: rotate(360deg);}
+39% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+52% {top: 90%; left: 90%; -webkit-transform: rotate(0deg);}
+65% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+78% {top: 90%; left: 0%; -webkit-transform: rotate(360deg);}
+91% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
 100% {top: 0; left: 0; -webkit-transform: rotate(0deg);}
 }
 
+@-webkit-keyframes animation2 {
+0% {top: 0; left: 0;}
+15% {top: 90%; left: 15%;}
+30% {top: 25%; left: 30%;}
+45% {top: 90%; left: 45%;}
+60% {top:50%; left: 60%;}
+75% {top: 90%; left: 75%;}
+90% {top: 75%; left: 90%;}
+100% {top: 90%; left: 100%;}
+}
 
-#container1{
+@-webkit-keyframes animation3 {
+0% {background: #fff;}
+10% {background: #191970;}
+20% {background: #00FFFF;}
+30% {background: #556B2F;}
+40% {background: #ADFF2F;}
+50% {background: #CD5C5C;}
+60% {background: #B22222;}
+70% {background: #DA70D6;}
+80% {background: #8B8989;}
+90% {background: #00B2EE;}
+100% {background: #fff;}
+}
+
+@-webkit-keyframes animation4 {
+0% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:9%; }
+10% {background: #191970;top: 13%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+20% {background: #00FFFF;top: 43%; left: 12%; width: 11%; height: 50%;-webkit-border-radius:10%}
+30% {background: #556B2F;top: 23%; left: 5%; width: 2%; height: 15%;-webkit-border-radius:1%}
+40% {background: #ADFF2F;top: 76%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+50% {background: #CD5C5C;top: 45%; left: 89%; width: 13%; height: 20%;-webkit-border-radius:10%}
+60% {background: #B22222;top: 23%; left: 67%; width: 1%; height: 13%;-webkit-border-radius:3%}
+70% {background: #DA70D6;top: 90%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+80% {background: #8B8989;top: 12%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+90% {background: #00B2EE;top: 76%; left: 12%; width: 20%; height: 1%;-webkit-border-radius:1%}
+100% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:10%}
+}
+@-webkit-keyframes animation5 {
+0% {background: #ADFF2F;top: 26%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+10% {background: #191970;top: 13%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+20% {background: #00FFFF;top: 43%; left: 12%; width: 11%; height: 50%;-webkit-border-radius:10%}
+30% {background: #556B2F;top: 23%; left: 5%; width: 2%; height: 15%;-webkit-border-radius:1%}
+40% {background: #DA70D6;top: 0%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+50% {background: #CD5C5C;top: 45%; left: 50%; width: 13%; height: 20%;-webkit-border-radius:10%}
+60% {background: #B22222;top: 23%; left: 34%; width: 1%; height: 13%;-webkit-border-radius:3%}
+70% {background: #191970;top: 0%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+80% {background: #8B8989;top: 12%; left: 38%; width: 15%; height: 22%;-webkit-border-radius:6%}
+90% {background: #00B2EE;top: 36%; left: 12%; width: 20%; height: 1%;-webkit-border-radius:1%}
+100% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:10%}
+}
+
+@-webkit-keyframes animation6 {
+0% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:9%; }
+10% {background: #191970;top: 13%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+20% {background: #00FFFF;top: 43%; left: 12%; width: 11%; height: 50%;-webkit-border-radius:10%}
+30% {background: #556B2F;top: 23%; left: 5%; width: 2%; height: 15%;-webkit-border-radius:1%}
+40% {background: #DA70D6;top: 0%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+50% {background: #CD5C5C;top: 45%; left: 89%; width: 13%; height: 20%;-webkit-border-radius:10%}
+60% {background: #8B8989;top: 12%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+70% {background: #DA70D6;top: 40%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+80% {background: #8B8989;top: 0%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+90% {background: #00B2EE;top: 12%; left: 12%; width: 20%; height: 1%;-webkit-border-radius:1%}
+100% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:10%}
+}
+@-webkit-keyframes animation7 {
+0% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:9%; }
+10% {background: #ADFF2F;top: 46%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+20% {background: #00FFFF;top: 43%; left: 12%; width: 11%; height: 50%;-webkit-border-radius:10%}
+30% {background: #556B2F;top: 23%; left: 5%; width: 2%; height: 15%;-webkit-border-radius:1%}
+40% {background: #ADFF2F;top: 6%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+50% {background: #CD5C5C;top: 45%; left: 89%; width: 13%; height: 20%;-webkit-border-radius:10%}
+60% {background: #B22222;top: 23%; left: 67%; width: 1%; height: 13%;-webkit-border-radius:3%}
+70% {background: #8B8989;top: 0%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+80% {background: #8B8989;top: 12%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+90% {background: #00B2EE;top: 7%; left: 12%; width: 20%; height: 1%;-webkit-border-radius:1%}
+100% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:10%}
+}
+
+@-webkit-keyframes animation8 {
+0% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:9%; }
+10% {background: #191970;top: 13%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+20% {background: #8B8989;top: 12%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+30% {background: #556B2F;top: 0%; left: 5%; width: 2%; height: 15%;-webkit-border-radius:1%}
+40% {background: #ADFF2F;top: 6%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+50% {background: #CD5C5C;top: 45%; left: 89%; width: 13%; height: 20%;-webkit-border-radius:10%}
+60% {background: #B22222;top: 23%; left: 67%; width: 1%; height: 13%;-webkit-border-radius:3%}
+70% {background: #DA70D6;top: 9%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+80% {background: #8B8989;top: 12%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+90% {background: #191970;top: 13%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+100% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:10%}
+}
+
+@-webkit-keyframes animation9 {
+0% {background: #ADFF2F;top: 8%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+10% {background: #191970;top: 13%; left: 32%; width: 10%; height: 10%;-webkit-border-radius:10%}
+20% {background: #00FFFF;top: 43%; left: 12%; width: 11%; height: 50%;-webkit-border-radius:10%}
+30% {background: #DA70D6;top: 20%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+40% {background: #ADFF2F;top: 0%; left: 34%; width: 20%; height: 12%;-webkit-border-radius:15%}
+50% {background: #CD5C5C;top: 45%; left: 89%; width: 13%; height: 20%;-webkit-border-radius:10%}
+60% {background: #B22222;top: 23%; left: 67%; width: 1%; height: 13%;-webkit-border-radius:3%}
+70% {background: #DA70D6;top: 0%; left: 23%; width: 23%; height: 2%;-webkit-border-radius:4%}
+80% {background: #8B8989;top: 12%; left: 98%; width: 15%; height: 22%;-webkit-border-radius:6%}
+90% {background: #00B2EE;top: 8%; left: 12%; width: 20%; height: 1%;-webkit-border-radius:1%}
+100% {background: #fff;top: 0; left: 0; width: 10%; height: 10%;-webkit-border-radius:10%}
+}
+
+
+
+#animate{
+	float: left;
+}
+
+#display{
+	margin-left: 200px;
+	width: 50%;
+	height: 50%;
+	background: #999;
+	overflow: hidden;
+}
+
+.animation1{
 	width: 10%;
 	height: 10%;
-	position: absolute;
-	-webkit-animation:anim_left_top 20s 1;
+	position: relative;
+	background: #123321;
+	-webkit-animation-name: 'animation1';
+    -webkit-animation-duration: 10s;
+}
+
+.animation2{
+	width: 3%;
+	height: 5%;
+	background: red;
+	-webkit-border-radius:25px; 
+	position: relative;
+	-webkit-animation-name: 'animation2';
+    -webkit-animation-duration: 20s;
+    -webkit-animation-timing-function: ease-in;	
+}
+
+.animation3{
+	width: 19%;
+	height: 34%;
+	-webkit-border-radius:125px; 
+	position: relative;
+	top: 33%;
+	left: 41%;
+	background: #fff;
+	-webkit-animation-name: 'animation3';
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
+}
+
+
+
+
+.animation4{
+	position: relative;
+	-webkit-animation-name: 'animation4';
+    -webkit-animation-duration: 30s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
+}
+.animation5{
+	position: relative;
+	-webkit-animation-name: 'animation5';
+    -webkit-animation-duration: 8s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
+}
+
+.animation6{
+	position: relative;
+	-webkit-animation-name: 'animation6';
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
+}
+.animation7{
+	position: relative;
+	-webkit-animation-name: 'animation7';
+    -webkit-animation-duration: 10s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
+}
+.animation8{ 
+	position: relative;
+	-webkit-animation-name: 'animation8';
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
+}
+.animation9{
+	position: relative;
+	-webkit-animation-name: 'animation9';
+    -webkit-animation-duration: 20s;
+    -webkit-animation-timing-function: linear;	
+    -webkit-animation-iteration-count: 100;
 }
