@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+@-webkit-keyframes anim_left_top {
+0% {top: 0; left: 0; -webkit-transform: rotate(0deg);}
+8% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+16% {top: 0%; left: 90%; -webkit-transform: rotate(360deg);}
+
+24% {top: 0; left: 90%; -webkit-transform: rotate(360deg);}
+33% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+40% {top: 90%; left: 90%; -webkit-transform: rotate(0deg);}
+
+48% {top: 90%; left: 90%; -webkit-transform: rotate(0deg);}
+56% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+64% {top: 90%; left: 0%; -webkit-transform: rotate(360deg);}
+
+72% {top: 90%; left: 0; -webkit-transform: rotate(360deg);}
+80% {top: 45%; left: 45%;-webkit-transform: rotate(180deg);}
+100% {top: 0; left: 0; -webkit-transform: rotate(0deg);}
+}
+
+
+#container1{
+	width: 10%;
+	height: 10%;
+	position: absolute;
+	-webkit-animation:anim_left_top 20s 1;
+}

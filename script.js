@@ -122,7 +122,7 @@
         /**
         * @property {array} stepChengOfColor. step that will change the color
         */
-        this.stepChengOfColor=[];
+        this.stepChangOfColor=[];
 
         /**
          * @property {array} arrayColorToChange. color to display
@@ -152,21 +152,21 @@
         /**
         *set the step for changing color 
         */
-       this.setChanjeStepOfColor = function()
+       this.setChangeStepOfColor = function()
         {
             var iter = this.getIteration();
-            this.stepChengOfColor[0] = ((this.startColor[0] - this.endColor[0]) / iter);
-            this.stepChengOfColor[1] = ((this.startColor[1] - this.endColor[1]) / iter);
-            this.stepChengOfColor[2] = ((this.startColor[2] - this.endColor[2]) / iter);
+            this.stepChangOfColor[0] = ((this.startColor[0] - this.endColor[0]) / iter);
+            this.stepChangOfColor[1] = ((this.startColor[1] - this.endColor[1]) / iter);
+            this.stepChangOfColor[2] = ((this.startColor[2] - this.endColor[2]) / iter);
         }
         /**
         * set and display color
         */
         this.changeColor = function()
         {
-            this.arrayColorToChange[0] = (this.startColor[0] - Math.floor(this.stepChengOfColor[0]*this.currentFrame));
-            this.arrayColorToChange[1] = (this.startColor[1] - Math.floor(this.stepChengOfColor[1]*this.currentFrame));
-            this.arrayColorToChange[2] = (this.startColor[2] - Math.floor(this.stepChengOfColor[2]*this.currentFrame));
+            this.arrayColorToChange[0] = (this.startColor[0] - Math.floor(this.stepChangOfColor[0]*this.currentFrame));
+            this.arrayColorToChange[1] = (this.startColor[1] - Math.floor(this.stepChangOfColor[1]*this.currentFrame));
+            this.arrayColorToChange[2] = (this.startColor[2] - Math.floor(this.stepChangOfColor[2]*this.currentFrame));
             this.currentFrame++;
             this.element.style.backgroundColor ='rgb(' + this.arrayColorToChange[0] + ',' + this.arrayColorToChange[1] + ','+ this.arrayColorToChange[2] + ')';
         }
@@ -181,7 +181,7 @@
         */
         this.animate = function()
         {
-            this.setChanjeStepOfColor();
+            this.setChangeStepOfColor();
             timer.run();
         }
 
@@ -209,7 +209,7 @@
             var newColor = new AnimateColor({element:document.getElementById('container2'), startColor:[0, 0, 0], endColor:[225, 215, 235], time:3000, interval:100,})
             newColor.animate();
         }
-        var color = new AnimateColor({element:document.getElementById('container1'), startColor:[102, 255, 90], endColor:[210, 0, 110], time:2500, interval:100, callback : callback});
+        var color = new AnimateColor({element:document.getElementById('container1'), startColor:[102, 255, 90], endColor:[210, 0, 110], time:20000, interval:100, callback : 'callback'});
         color.animate();
     }
     window.init = init;
